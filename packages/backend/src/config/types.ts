@@ -27,7 +27,7 @@ export namespace HoyoLabApi {
         current_expedition_num: number;
         max_expedition_num: number;
         // 探索派遣
-        expeditions: HoyoLabDailyApiExpeditions;
+        expeditions: HoyoLabDailyApiExpeditions[];
         // 現在の洞天集宝盆
         current_home_coin: number;
         // 洞天集宝盆の上限
@@ -40,14 +40,14 @@ export namespace HoyoLabApi {
     };
 
     // 探索派遣
-    type HoyoLabDailyApiExpeditions = {
+    export type HoyoLabDailyApiExpeditions = {
         avatar_side_icon: string;
         status: string;
         remained_time: string;
     };
 
     // 参量物質変化器
-    type HoyoLabDailyApiTransformer = {
+    export type HoyoLabDailyApiTransformer = {
         obtained: boolean;
         // 再使用可能までの時間情報
         recovery_time: {
