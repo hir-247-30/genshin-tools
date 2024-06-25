@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend api / batch",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "dprint": "dprint fmt",
+    "dprint:check": "dprint check",
+    "test": "npx tsc --noEmit && npm run lint && npm run dprint:check",
+    "import": "npx tsx src/bat/controllers/import.ts",
+    "report": "npx tsx src/bat/controllers/report.ts"
+  },
+  "devDependencies": {
+    "@fastify/cors": "9.0.1",
+    "@fastify/etag": "5.2.0",
+    "@fastify/helmet": "11.1.1",
+    "express-validator": "7.1.0",
+    "fastify": "4.28.0",
+    "fastify-graceful-shutdown": "3.5.3"
+  }
+}
