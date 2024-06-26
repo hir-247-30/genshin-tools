@@ -12,4 +12,7 @@ npm run import
 
 # 通知実行
 npm run report
+
+# サーバー起動
+npm run server
 ```

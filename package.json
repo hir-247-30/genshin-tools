@@ -2,10 +2,12 @@
   "name": "genshin-tools",
   "version": "1.0.0",
   "description": "genshin-tools",
-  "main": "index.js",
   "type": "module",
   "scripts": {
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "author": "hir-247-30",
   "devDependencies": {
     "@swc/core": "^1.6.1",
