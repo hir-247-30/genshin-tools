@@ -37,6 +37,7 @@ export namespace HoyoLabApi {
         calendar_url: string;
         // 参量物質変化器
         transformer: HoyoLabDailyApiTransformer;
+        daily_task: HoyoLabDailyApiDailyTask;
     };
 
     // 探索派遣
@@ -61,7 +62,6 @@ export namespace HoyoLabApi {
         wiki: string;
         noticed: boolean;
         latest_job_id: string;
-        daily_task: HoyoLabDailyApiDailyTask;
     };
 
     // デイリー任務
@@ -74,6 +74,11 @@ export namespace HoyoLabApi {
         is_extra_task_reward_received: boolean;
     };
 }
+
+export type LineNotifyResponse = {
+    status: string;
+    message: string;
+};
 
 export type CustomeErrorResponse = {
     statuscode: number;

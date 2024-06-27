@@ -2,7 +2,7 @@ import * as util from '@common/util';
 import { assert } from 'chai';
 import { describe, it } from 'mocha';
 
-describe('models/time', () => {
+describe('util', () => {
     before(function() {
     });
     after(function() {

@@ -1,5 +1,13 @@
-import { HOYOLAB_COOKIE_LTOKEN, HOYOLAB_COOKIE_LUID, REPORT_BORDER_HOME_COIN_RECOVERY_TIME, REPORT_BORDER_RESIN_RECOVERY_TIME } from '@config/define';
-import { HoyoLabApi } from '@config/types';
+import { axiosRequest } from '@common/util';
+import {
+    HOYOLAB_COOKIE_LTOKEN,
+    HOYOLAB_COOKIE_LUID,
+    LINE_NOTIFY_API_URL,
+    PERSONAL_LINE_ACCESS_TOKEN,
+    REPORT_BORDER_HOME_COIN_RECOVERY_TIME,
+    REPORT_BORDER_RESIN_RECOVERY_TIME,
+} from '@config/define';
+import { HoyoLabApi, LineNotifyResponse } from '@config/types';
 import { ok } from 'assert';
 
 export async function checkAndReport(hoyoLabDailyApiResponse: HoyoLabApi.HoyoLabDailyApiResponse): Promise<void> {
@@ -44,6 +52,22 @@ async function executeReport(
     if (!reportResin && !reportHomeCoin && !reportTransformer && !reportExpeditions) {
         return;
     }
+
+    const message = buildNotifyMessage({ reportResin, reportHomeCoin, reportTransformer, reportExpeditions });
+
+    const requestOptions = {
+        url: LINE_NOTIFY_API_URL,
+        method: 'POST',
+        params: {
+            message,
+        },
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            Authorization: `Bearer ${PERSONAL_LINE_ACCESS_TOKEN}`,
+        },
+    };
+
+    axiosRequest<LineNotifyResponse>(requestOptions);
 }
 
 function reportForResinRecoveryTime(resinRecoveryTime: string): boolean {
@@ -63,6 +87,22 @@ function reportAvailableOnTransformer(transformer: HoyoLabApi.HoyoLabDailyApiTra
 }
 
 function reportExpeditionsFinished(expeditions: HoyoLabApi.HoyoLabDailyApiExpeditions[]): boolean {
-    const finishedExpeditions = expeditions.filter(ele => ele.status !== 'Ongoing');
+    const finishedExpeditions = expeditions.filter(ele => ele.status === 'Finished');
     return finishedExpeditions.length > 0;
+}
+
+function buildNotifyMessage(params: { reportResin: boolean; reportHomeCoin: boolean; reportTransformer: boolean; reportExpeditions: boolean; }): string {
+    const {
+        reportResin,
+        reportHomeCoin,
+        reportTransformer,
+        reportExpeditions,
+    } = params;
+
+    const resinMessage = reportResin ? '\n樹脂があふれそうだぞ！' : '';
+    const homeCoinMessage = reportHomeCoin ? '\n洞天集宝盆があふれそうだぞ！' : '';
+    const transformerMessage = reportTransformer ? '\n参量物質変化器が使用可能になったぞ！' : '';
+    const expeditionsMessage = reportExpeditions ? '\n探索派遣が終わったぞ！' : '';
+
+    return `\nおい！${resinMessage}${homeCoinMessage}${transformerMessage}${expeditionsMessage}`;
 }
