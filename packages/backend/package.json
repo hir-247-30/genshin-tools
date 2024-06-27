@@ -8,14 +8,20 @@
     "lint": "eslint .",
     "dprint": "dprint fmt",
     "dprint:check": "dprint check",
-    "test": "npx tsc --noEmit && npm run lint && npm run dprint:check",
+    "unittest": "mocha -r tsx 'src/test/**/*.ts' --exit",
+    "test": "npx tsc --noEmit && npm run unittest && npm run lint && npm run dprint:check",
     "import": "npx tsx src/bat/controllers/import.ts",
     "report": "npx tsx src/bat/controllers/report.ts",
     "server": "npx tsx src/server/app.ts"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.16",
     "@types/express": "^4.17.21",
+    "@types/mocha": "^10.0.7",
+    "chai": "^4.4.1",
+    "cross-env": "^7.0.3",
     "express": "^4.19.2",
-    "express-validator": "7.1.0"
+    "express-validator": "7.1.0",
+    "mocha": "^10.5.2"
   }
 }
