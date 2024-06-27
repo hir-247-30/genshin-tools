@@ -1,4 +1,4 @@
-// TODO .envのような気楽に編集できる設定ファイルを作成
+export const EXPRESS_PORT = 3000;
 export const USER_ID = 'Your Genshin UID';
 export const HOYOLAB_COOKIE_LTOKEN = 'Your HoyoLab Login Cookie (LTOKEN)';
 export const HOYOLAB_COOKIE_LUID = 'Your HoyoLab Login Cookie (LUID)';
