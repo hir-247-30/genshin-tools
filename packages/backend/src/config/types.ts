@@ -1,8 +1,38 @@
 import { DAILY_TASK_NUMBER, MAX_HOME_COIN, MAX_RESIN } from '@config/define';
 
-// TODO
 export namespace EnkaApi {
-    export type EnkaApiResponse = string[];
+    export type EnkaApiResponse = {
+        playerInfo: PlayerInfo,
+        avatarInfoList: avatarInfoList,
+        ttl: number,
+        uid: string,
+    };
+
+    type PlayerInfo = {
+        nickname: string,
+        level: number,
+        signature: string,
+        worldLevel: number,
+        nameCardId: number,
+        finishAchievementNum: number,
+        towerFloorIndex: number,
+        towerLevelIndex: number,
+        showAvatarInfoList: showAvatarInfoList[],
+        showNameCardIdList: number[],
+        profilePicture: {
+            id: number,
+        }
+    };
+
+    type showAvatarInfoList = {
+        avatarId: number,
+        level: number,
+        costumeId?: number,
+    };
+
+    type avatarInfoList = {
+        avatarId: number,
+    };
 }
 
 export namespace HoyoLabApi {
