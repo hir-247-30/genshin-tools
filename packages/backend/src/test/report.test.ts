@@ -1,3 +1,4 @@
+import { DAILY_TASK_NUMBER, MAX_HOME_COIN, MAX_RESIN } from '@config/define';
 import { describe, it } from 'mocha';
 import * as report from '../bat/service/report';
 
@@ -8,15 +9,12 @@ describe('report', () => {
     });
 
     it('checkAndReport', done => {
-        const maxResin = 200 as const;
-        const maxHomeCoin = 2400 as const;
-        const totalNum = 4 as const;
         const args = {
             retcode: 200,
             message: 'OK',
             data: {
                 current_resin: 100,
-                max_resin: maxResin,
+                max_resin: MAX_RESIN as 200,
                 resin_recovery_time: '60000',
                 finished_task_num: 0,
                 total_task_num: 4,
@@ -53,7 +51,7 @@ describe('report', () => {
                     },
                 ],
                 current_home_coin: 1000,
-                max_home_coin: maxHomeCoin,
+                max_home_coin: MAX_HOME_COIN as 2400,
                 home_coin_recovery_time: '50000',
                 calendar_url: '',
                 transformer: {
@@ -64,7 +62,7 @@ describe('report', () => {
                     latest_job_id: '0',
                 },
                 daily_task: {
-                    total_num: totalNum,
+                    total_num: DAILY_TASK_NUMBER as 4,
                     finished_num: 0,
                     is_extra_task_reward_received: false,
                 },
