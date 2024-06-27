@@ -74,3 +74,9 @@ export namespace HoyoLabApi {
         is_extra_task_reward_received: boolean;
     };
 }
+
+export type CustomeErrorResponse = {
+    statuscode: number;
+    message: string;
+    error?: Error;
+};

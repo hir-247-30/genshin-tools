@@ -1,10 +1,19 @@
-import { FastifyInstance } from 'fastify';
+import { myError500 } from '@common/util';
+import { NextFunction, Request, Response, Router } from 'express';
 
-export async function TravelerProfileController(route: FastifyInstance, done: (err?: Error) => void) {
-    route.get(`/traveler/profile`, async (req, res) => {
-        // 確認用
-        console.log(req.query);
-        res.send({ hello: 'world' });
-        done();
-    });
-}
+const route: Router = Router();
+
+route.get('/traveler/profile', function(req: Request, res: Response, next: NextFunction) {
+    try {
+        const query = req.params.test;
+        const testResponse = {
+            text: 'OK',
+            query: query,
+        };
+        res.send(testResponse);
+    } catch (error: unknown) {
+        next(myError500(error));
+    }
+});
+
+export const TravelerProfileController: Router = route;

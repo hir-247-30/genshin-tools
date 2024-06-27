@@ -1,3 +1,4 @@
+import { CustomeErrorResponse } from '@config/types';
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 export async function axiosRequest<T>(requestOptions: {
@@ -28,4 +29,29 @@ export async function axiosRequest<T>(requestOptions: {
             console.log(e.message);
             return undefined;
         });
+}
+
+export function myError500(error: unknown): CustomeErrorResponse | undefined {
+    if (!(error instanceof Error)) return;
+    return {
+        statuscode: 500,
+        message: 'INTERNAL SERVER ERROR',
+        error,
+    };
+}
+
+export function myError400(error: unknown): CustomeErrorResponse | undefined {
+    if (!(error instanceof Error)) return;
+    return {
+        statuscode: 400,
+        message: 'INVALID PARAMETERS',
+        error,
+    };
+}
+
+export function myError404(): CustomeErrorResponse {
+    return {
+        statuscode: 404,
+        message: 'NOT FOUND',
+    };
 }
