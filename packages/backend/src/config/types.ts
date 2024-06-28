@@ -2,36 +2,36 @@ import { DAILY_TASK_NUMBER, MAX_HOME_COIN, MAX_RESIN } from '@config/define';
 
 export namespace EnkaApi {
     export type EnkaApiResponse = {
-        playerInfo: PlayerInfo,
-        avatarInfoList: avatarInfoList,
-        ttl: number,
-        uid: string,
+        playerInfo: PlayerInfo;
+        avatarInfoList?: AvatarInfoList;
+        ttl: number;
+        uid: string;
     };
 
-    type PlayerInfo = {
-        nickname: string,
-        level: number,
-        signature: string,
-        worldLevel: number,
-        nameCardId: number,
-        finishAchievementNum: number,
-        towerFloorIndex: number,
-        towerLevelIndex: number,
-        showAvatarInfoList: showAvatarInfoList[],
-        showNameCardIdList: number[],
+    export type PlayerInfo = {
+        nickname: string;
+        level: number;
+        signature?: string;
+        worldLevel?: number;
+        nameCardId: number;
+        finishAchievementNum?: number;
+        towerFloorIndex?: number;
+        towerLevelIndex?: number;
+        showAvatarInfoList?: ShowAvatarInfoList[];
+        showNameCardIdList?: number[];
         profilePicture: {
-            id: number,
-        }
+            id: number;
+        };
     };
 
-    type showAvatarInfoList = {
-        avatarId: number,
-        level: number,
-        costumeId?: number,
+    type ShowAvatarInfoList = {
+        avatarId: number;
+        level: number;
+        costumeId?: number;
     };
 
-    type avatarInfoList = {
-        avatarId: number,
+    export type AvatarInfoList = {
+        avatarId: number;
     };
 }
 
