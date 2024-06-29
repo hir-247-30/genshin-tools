@@ -1,6 +1,6 @@
 import { DAILY_TASK_NUMBER, MAX_HOME_COIN, MAX_RESIN } from '@config/define';
+import * as report from '@services/batch/report';
 import { describe, it } from 'mocha';
-import * as report from '../bat/service/report';
 
 describe('report', () => {
     before(function() {

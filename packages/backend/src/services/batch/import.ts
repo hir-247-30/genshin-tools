@@ -1,5 +1,5 @@
 import { EnkaApi } from '@config/types';
-import { insertTravelerData } from '../models/traveler';
+import { insertTravelerData } from '@models/traveler';
 
 export async function executeImportForTraveler(playerInfo: EnkaApi.PlayerInfo): Promise<void> {
     const result = await insertTravelerData(playerInfo);

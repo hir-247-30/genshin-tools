@@ -1,8 +1,8 @@
 import { axiosRequest } from '@common/util';
 import { HOYOLAB_DAILY_API_URL, SERVER_ZONE, USER_ID } from '@config/define';
 import { HoyoLabApi } from '@config/types';
+import { buildHoyoLabCookie, checkAndReport } from '@services/batch/report';
 import { ok } from 'assert';
-import { buildHoyoLabCookie, checkAndReport } from '../service/report';
 
 await execute();
 

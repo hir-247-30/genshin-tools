@@ -1,7 +1,7 @@
 import { myError404 } from '@common/util';
 import { EXPRESS_PORT } from '@config/define';
+import { TravelerProfileController } from '@controllers/server/travelerProfile';
 import Express from 'express';
-import { TravelerProfileController } from './controllers/travelerProfile';
 
 const app: Express.Application = Express();
 

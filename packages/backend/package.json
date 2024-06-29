@@ -10,9 +10,9 @@
     "dprint:check": "dprint check",
     "unittest": "mocha -r tsx 'src/test/**/*.ts' --exit",
     "test": "npx tsc --noEmit && npm run unittest && npm run lint && npm run dprint:check",
-    "import": "npx tsx src/bat/controllers/import.ts",
-    "report": "npx tsx src/bat/controllers/report.ts",
-    "server": "npx tsx src/server/app.ts"
+    "import": "npx tsx src/controllers/batch/import.ts",
+    "report": "npx tsx src/controllers/batch/report.ts",
+    "server": "npx tsx src/app.ts"
   },
   "devDependencies": {
     "@types/chai": "^4.3.16",

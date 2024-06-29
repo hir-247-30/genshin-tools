@@ -1,6 +1,6 @@
-import mysql, { Pool, PoolConfig } from 'mysql';
 import { myError500 } from '@common/util';
 import { CustomeErrorResponse, EnkaApi } from '@config/types';
+import mysql, { Pool, PoolConfig } from 'mysql';
 
 const DB_NAME = 'traveler';
 const poolConfig: PoolConfig = {

@@ -6,7 +6,10 @@
     "baseUrl": ".",
     "paths": {
       "@config/*": ["./src/config/*"],
-      "@common/*": ["./src/common/*"]
+      "@common/*": ["./src/common/*"],
+      "@controllers/*": ["./src/controllers/*"],
+      "@services/*": ["./src/services/*"],
+      "@models/*": ["./src/models/*"]
     }
   },
   "ts-node": {
