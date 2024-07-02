@@ -14,12 +14,15 @@ export async function axiosRequest<T>(requestOptions: {
         headers,
     } = requestOptions;
 
-    const options: AxiosRequestConfig = {
+    let options: AxiosRequestConfig = {
         url,
         method,
         params,
-        headers,
     };
+
+    if (headers) {
+        options = Object.assign(options, headers);
+    }
 
     return axios(options)
         .then((res: AxiosResponse<T>) => {
