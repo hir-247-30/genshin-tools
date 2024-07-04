@@ -14,15 +14,13 @@ export async function axiosRequest<T>(requestOptions: {
         headers,
     } = requestOptions;
 
-    let options: AxiosRequestConfig = {
+    // @ts-expect-error サードパーティーの exactOptionalPropertyTypes
+    const options: AxiosRequestConfig = {
         url,
         method,
         params,
+        headers,
     };
-
-    if (headers) {
-        options = Object.assign(options, headers);
-    }
 
     return axios(options)
         .then((res: AxiosResponse<T>) => {
