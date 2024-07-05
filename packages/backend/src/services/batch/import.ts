@@ -1,10 +1,10 @@
 import { EnkaApi } from '@config/types';
-import { insertTravelerData } from '@models/traveler';
+import { insert } from '@models/traveler';
 
 export async function executeImportForTraveler(playerInfo: EnkaApi.PlayerInfo): Promise<void> {
-    const result = await insertTravelerData(playerInfo);
+    const result = await insert(playerInfo);
     if (result) {
-        console.log(result);
+        throw new Error(`${result.statuscode} ${result.message} ${result.error?.message ?? 'エラーメッセージなし'}`);
     }
 }
 

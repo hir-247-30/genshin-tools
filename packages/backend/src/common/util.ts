@@ -1,5 +1,15 @@
-import { CustomeErrorResponse } from '@config/types';
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import { PoolConfig } from 'mysql';
+import { DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME } from '@config/define';
+import { CustomeErrorResponse } from '@config/types';
+
+export const dbPoolConfig: PoolConfig = {
+    host: DB_HOST,
+    port: DB_PORT,
+    user: DB_USER,
+    password: DB_PASSWORD,
+    database: DB_NAME,
+};
 
 export async function axiosRequest<T>(requestOptions: {
     url: string;

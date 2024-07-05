@@ -7,6 +7,13 @@ export const REPORT_BORDER_RESIN_RECOVERY_TIME = 7200; // 2時間前
 export const REPORT_BORDER_HOME_COIN_RECOVERY_TIME = 36000; // 10時間前
 export const SERVER_ZONE = 'os_asia';
 
+// DATABASE
+export const DB_HOST = 'host';
+export const DB_PORT = 13306;
+export const DB_USER = 'user';
+export const DB_PASSWORD = 'password';
+export const DB_NAME = 'database';
+
 // SYSTEM
 export const EXPRESS_PORT = 3000;
 export const ENKA_NETWORK_API_URL = 'https://enka.network/api/uid/';

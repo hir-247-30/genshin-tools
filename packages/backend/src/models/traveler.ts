@@ -1,21 +1,25 @@
-import { myError500 } from '@common/util';
+import mysql, { Pool } from 'mysql';
+import { USER_ID } from '@config/define';
+import { dbPoolConfig, myError500 } from '@common/util';
 import { CustomeErrorResponse, EnkaApi } from '@config/types';
-import mysql, { Pool, PoolConfig } from 'mysql';
 
 const DB_NAME = 'traveler';
-const poolConfig: PoolConfig = {
-    host: 'host',
-    port: 3306,
-    user: 'user',
-    password: 'password',
-    database: 'database',
-};
-const pool: Pool = mysql.createPool(poolConfig);
+const pool: Pool = mysql.createPool(dbPoolConfig);
 
-export async function insertTravelerData(playerInfo: EnkaApi.PlayerInfo): Promise<CustomeErrorResponse | void> {
+export async function insert(playerInfo: EnkaApi.PlayerInfo): Promise<CustomeErrorResponse | void> {
     try {
-        const insertData = [playerInfo.nickname];
-        const sql: string = mysql.format(`INSERT INTO ${DB_NAME} SET ?`, insertData);
+        const insertData = [
+            USER_ID,
+            playerInfo.nickname,
+            playerInfo.level,
+            playerInfo.signature ?? null,
+            playerInfo.worldLevel ?? null,
+            playerInfo.nameCardId ?? null,
+            playerInfo.finishAchievementNum ?? null,
+            playerInfo.towerFloorIndex ?? null,
+            playerInfo.towerLevelIndex ?? null,
+        ];
+        const sql: string = mysql.format(`INSERT INTO ${DB_NAME} SET ? ? ? ? ? ? ? ? ?`, insertData);
         pool.query(sql);
     } catch (error) {
         pool.end();
