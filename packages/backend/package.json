@@ -14,12 +14,15 @@
     "report": "npx tsx src/controllers/batch/report.ts",
     "server": "npx tsx src/app.ts"
   },
+  "dependencies": {
+    "@hono/node-server": "^1.12.2",
+    "hono": "4.5.10"
+  },
   "devDependencies": {
     "@types/chai": "^4.3.16",
     "@types/express": "^4.17.21",
     "@types/mocha": "^10.0.7",
     "@types/mysql": "^2.15.26",
-    "hono": "^4.5.10",
     "chai": "^4.4.1",
     "cross-env": "^7.0.3",
     "express": "^4.19.2",
