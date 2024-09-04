@@ -1,7 +1,7 @@
-import mysql, { Pool } from 'mysql';
-import { USER_ID } from '@config/define';
 import { dbPoolConfig, myError500 } from '@common/util';
+import { USER_ID } from '@config/define';
 import { CustomeErrorResponse, EnkaApi } from '@config/types';
+import mysql, { Pool } from 'mysql';
 
 const DB_NAME = 'traveler';
 const pool: Pool = mysql.createPool(dbPoolConfig);

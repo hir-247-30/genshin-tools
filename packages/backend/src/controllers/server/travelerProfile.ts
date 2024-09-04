@@ -1,19 +1,16 @@
 import { myError500 } from '@common/util';
-import { NextFunction, Request, Response, Router } from 'express';
+import { Context } from 'hono';
 
-const route: Router = Router();
-
-route.get('/traveler/profile', function(req: Request, res: Response, next: NextFunction) {
+// GET /traveler/profile
+export const TravelerProfileController = async (c: Context) => {
     try {
-        const query = req.params.test;
+        const query = c.req.query('test');
         const testResponse = {
             text: 'OK',
             query: query,
         };
-        res.send(testResponse);
+        return c.json(testResponse);
     } catch (error: unknown) {
-        next(myError500(error));
+        return c.json(myError500(error));
     }
-});
-
-export const TravelerProfileController: Router = route;
+};

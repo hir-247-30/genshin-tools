@@ -1,19 +1,19 @@
 import { myError404 } from '@common/util';
-import { EXPRESS_PORT } from '@config/define';
+import { SERVER_PORT } from '@config/define';
 import { TravelerProfileController } from '@controllers/server/travelerProfile';
-import Express from 'express';
+import { serve } from '@hono/node-server';
+import { Hono } from 'hono';
+import { logger } from 'hono/logger';
 
-const app: Express.Application = Express();
+const app = new Hono();
+app.use('*', logger());
 
-app.use(TravelerProfileController);
+app.get('/traveler/profile', TravelerProfileController);
 
-// @ts-expect-error 'req' is declared but its value is never read.
-app.use(function(req, res) {
+app.use('*', async (c, next) => {
+    await next();
     const error = myError404();
-    res.status(404).send({ error });
+    return c.json({ error });
 });
 
-app.listen(EXPRESS_PORT, () => {
-    console.log('Express server is running...');
-    console.log(`Now, you can access to http://localhost:${EXPRESS_PORT}`);
-});
+serve({ ...app, port: SERVER_PORT }, () => console.log(`Now, you can access to http://localhost:${SERVER_PORT}`));

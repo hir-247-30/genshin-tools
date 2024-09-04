@@ -1,7 +1,7 @@
+import { DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USER } from '@config/define';
+import { CustomeErrorResponse } from '@config/types';
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { PoolConfig } from 'mysql';
-import { DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME } from '@config/define';
-import { CustomeErrorResponse } from '@config/types';
 
 export const dbPoolConfig: PoolConfig = {
     host: DB_HOST,

@@ -1,4 +1,4 @@
-// PRESONAL
+// PERSONAL
 export const USER_ID = 'Your Genshin UID';
 export const HOYOLAB_COOKIE_LTOKEN = 'Your HoyoLab Login Cookie (LTOKEN)';
 export const HOYOLAB_COOKIE_LUID = 'Your HoyoLab Login Cookie (LUID)';
@@ -15,7 +15,7 @@ export const DB_PASSWORD = 'password';
 export const DB_NAME = 'database';
 
 // SYSTEM
-export const EXPRESS_PORT = 3000;
+export const SERVER_PORT = 3000;
 export const ENKA_NETWORK_API_URL = 'https://enka.network/api/uid/';
 export const HOYOLAB_DAILY_API_URL = 'https://bbs-api-os.hoyoverse.com/game_record/genshin/api/dailyNote';
 export const LINE_NOTIFY_API_URL = 'https://notify-api.line.me/api/notify';
