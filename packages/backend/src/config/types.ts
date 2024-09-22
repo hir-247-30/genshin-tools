@@ -17,6 +17,10 @@ export namespace EnkaApi {
         finishAchievementNum?: number;
         towerFloorIndex?: number;
         towerLevelIndex?: number;
+        towerStarIndex?: number;
+        theaterActIndex?: number;
+        theaterModeIndex?: number;
+        theaterStarIndex?: number;
         showAvatarInfoList?: ShowAvatarInfoList[];
         showNameCardIdList?: number[];
         profilePicture: {

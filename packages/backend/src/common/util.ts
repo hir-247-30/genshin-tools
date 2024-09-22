@@ -1,14 +1,16 @@
 import { DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USER } from '@config/define';
 import { CustomeErrorResponse } from '@config/types';
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { PoolConfig } from 'mysql';
+import { ConnectionOptions } from 'mysql2';
 
-export const dbPoolConfig: PoolConfig = {
+export const dbConnectionOptions: ConnectionOptions = {
     host: DB_HOST,
     port: DB_PORT,
     user: DB_USER,
     password: DB_PASSWORD,
     database: DB_NAME,
+    connectionLimit: 3,
+    namedPlaceholders: true,
 };
 
 export async function axiosRequest<T>(requestOptions: {

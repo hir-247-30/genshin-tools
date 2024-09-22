@@ -8,11 +8,11 @@ export const REPORT_BORDER_HOME_COIN_RECOVERY_TIME = 36000; // 10時間前
 export const SERVER_ZONE = 'os_asia';
 
 // DATABASE
-export const DB_HOST = 'host';
+export const DB_HOST = 'localhost';
 export const DB_PORT = 13306;
-export const DB_USER = 'user';
+export const DB_USER = 'root';
 export const DB_PASSWORD = 'password';
-export const DB_NAME = 'database';
+export const DB_NAME = 'genshin-tools-database';
 
 // SYSTEM
 export const SERVER_PORT = 3000;
