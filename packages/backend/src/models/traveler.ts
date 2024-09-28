@@ -50,9 +50,11 @@ export async function upsert(playerInfo: EnkaApi.PlayerInfo): Promise<CustomeErr
             theater_mode_index: playerInfo.theaterModeIndex ?? 0,
             theater_star_index: playerInfo.theaterStarIndex ?? 0,
         };
-        pool.execute(sql, values);
+        await pool.execute(sql, values);
     } catch (error) {
         return myError500(error);
+    } finally {
+        pool.end();
     }
 }
 
