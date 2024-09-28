@@ -19,7 +19,7 @@ app.use('*', async (c: Context, next) => {
 const server = serve({ ...app, port: SERVER_PORT }, () => console.log(`Now, you can access to http://localhost:${SERVER_PORT}`));
 
 const gracefulShutdown = function() {
-    server.close(function () {
+    server.close(function() {
         console.log('bye');
         process.exit();
     });
