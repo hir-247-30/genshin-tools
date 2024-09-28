@@ -1,15 +1,16 @@
 import { myError500 } from '@common/util';
+import { USER_ID } from '@config/define';
+import { fetch } from '@models/traveler';
 import { Context } from 'hono';
 
 // GET /traveler/profile
 export const TravelerProfileController = async (c: Context) => {
     try {
-        const query = c.req.query('test');
-        const testResponse = {
-            text: 'OK',
-            query: query,
+        const traveler = await fetch(USER_ID);
+        const response = {
+            traveler,
         };
-        return c.json(testResponse);
+        return c.json(response);
     } catch (error: unknown) {
         return c.json(myError500(error));
     }

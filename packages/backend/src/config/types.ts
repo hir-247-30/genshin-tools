@@ -109,6 +109,23 @@ export namespace HoyoLabApi {
     };
 }
 
+export namespace Database {
+    export type Traveler = {
+        player_id: string;
+        name: string;
+        level: number;
+        signature: string;
+        world_level: number;
+        achievement_num: number;
+        tower_floor_index: number;
+        tower_level_index: number;
+        tower_star_index: number;
+        theater_act_index: number;
+        theater_mode_index: number;
+        theater_star_index: number;
+    };
+}
+
 export type LineNotifyResponse = {
     status: string;
     message: string;
