@@ -18,10 +18,14 @@ app.use('*', async (c: Context, next) => {
 
 const server = serve({ ...app, port: SERVER_PORT }, () => console.log(`Now, you can access to http://localhost:${SERVER_PORT}`));
 
+let isShuttingDown = false;
 const gracefulShutdown = function() {
+    if (isShuttingDown) return;
+    isShuttingDown = true;
+    
     server.close(function() {
         console.log('bye');
-        process.exit();
+        process.exit(0);
     });
 };
 process.on('SIGTERM', gracefulShutdown);
