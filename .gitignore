@@ -2,5 +2,7 @@ node_modules/
 dist/
 docker/db/
 docker/.db/
+.idea/
+.vscode/
+.claude/
 define.local.ts
-.idea
