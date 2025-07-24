@@ -22,7 +22,7 @@ let isShuttingDown = false;
 const gracefulShutdown = function() {
     if (isShuttingDown) return;
     isShuttingDown = true;
-    
+
     server.close(function() {
         console.log('bye');
         process.exit(0);

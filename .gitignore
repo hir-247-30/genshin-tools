@@ -5,4 +5,4 @@ docker/.db/
 .idea/
 .vscode/
 .claude/
-define.local.ts
+.env
