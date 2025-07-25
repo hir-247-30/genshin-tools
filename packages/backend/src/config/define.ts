@@ -6,7 +6,6 @@ dotenv.config({ path: '.env' });
 export const USER_ID = process.env.USER_ID || '';
 export const HOYOLAB_COOKIE_LTOKEN = process.env.HOYOLAB_COOKIE_LTOKEN || '';
 export const HOYOLAB_COOKIE_LUID = process.env.HOYOLAB_COOKIE_LUID || '';
-export const PERSONAL_LINE_ACCESS_TOKEN = process.env.PERSONAL_LINE_ACCESS_TOKEN || '';
 export const REPORT_BORDER_RESIN_RECOVERY_TIME = 7200; // 2時間前
 export const REPORT_BORDER_HOME_COIN_RECOVERY_TIME = 36000; // 10時間前
 export const SERVER_ZONE = 'os_asia';
@@ -21,8 +20,6 @@ export const DB_NAME = process.env.DB_NAME || 'genshin-tools-database';
 // SYSTEM
 export const SERVER_PORT = parseInt(process.env.SERVER_PORT || '3000');
 export const ENKA_NETWORK_API_URL = 'https://enka.network/api/uid/';
-export const HOYOLAB_DAILY_API_URL = 'https://bbs-api-os.hoyoverse.com/game_record/genshin/api/dailyNote';
-export const LINE_NOTIFY_API_URL = 'https://notify-api.line.me/api/notify';
 export const MAX_RESIN = 200;
 export const MAX_HOME_COIN = 2400;
 export const DAILY_TASK_NUMBER = 4;

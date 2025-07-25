@@ -11,7 +11,6 @@
     "unittest": "mocha -r tsx 'src/test/**/*.ts' --exit",
     "test": "npx tsc --noEmit && npm run unittest && npm run lint && npm run dprint:check",
     "import": "npx tsx src/controllers/batch/import.ts",
-    "report": "npx tsx src/controllers/batch/report.ts",
     "server": "npx tsx src/app.ts"
   },
   "dependencies": {
