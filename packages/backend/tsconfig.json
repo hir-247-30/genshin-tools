@@ -8,6 +8,7 @@
       "#config/*": ["./src/config/*"],
       "#common/*": ["./src/common/*"],
       "#controllers/*": ["./src/controllers/*"],
+      "#domains/*": ["./src/domains/*"],
       "#services/*": ["./src/services/*"],
       "#models/*": ["./src/models/*"]
     }

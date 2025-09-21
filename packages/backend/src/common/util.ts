@@ -62,9 +62,9 @@ export function myError400(error: unknown): CustomeErrorResponse | undefined {
     };
 }
 
-export function myError404(): CustomeErrorResponse {
+export function myError404(message = 'NOT FOUND'): CustomeErrorResponse {
     return {
         statuscode: 404,
-        message: 'NOT FOUND',
+        message,
     };
 }
