@@ -34,9 +34,92 @@ export namespace EnkaApi {
         costumeId?: number;
     };
 
-    export type AvatarInfoList = {
+    export type AvatarInfoList = AvatarInfo[];
+
+    export type AvatarInfo = {
         avatarId: number;
+        talentIdList?: number[];
+        skillDepotId: number;
+        inherentProudSkillList: number[];
+        skillLevelMap: {
+            [key: string]: number;
+        };
+        proudSkillExtraLevelMap?: {
+            [key: string]: number;
+        };
+        equipList: Artifact[] | Weapon[];
+        fetterInfo: {
+            expLevel: number;
+        };
+        costumeId?: number;
     };
+
+    type Artifact = {
+        itemId: number;
+        reliquary: {
+            level: number;
+            mainPropId: number;
+        };
+        flat: {
+            nameTextMapHash: string;
+            rankLevel: number;
+            itemType: 'ITEM_RELIQUARY'; // 聖遺物
+            icon: string;
+            equipType: 'EQUIP_BRACER' | 'EQUIP_NECKLACE' | 'EQUIP_DRESS' | 'EQUIP_SHOES' | 'EQUIP_RING';
+            setId: number;
+            setNameTextMapHash: string;
+            reliquaryMainstat: ArtifactMainStat;
+            reliquarySubstats: ArtifactSubStat[];
+        };
+    };
+
+    type ArtifactMainStat = {
+        mainPropId: AbilityProp;
+        statValue: number;
+    };
+
+    type ArtifactSubStat = {
+        appendPropId: AbilityProp;
+        statValue: number;
+    };
+
+    type Weapon = {
+        itemId: number;
+        weapon: {
+            level: number;
+            promoteLevel: number;
+        };
+        flat: {
+            nameTextMapHash: string;
+            rankLevel: number;
+            itemType: 'ITEM_WEAPON'; // 武器
+            icon: string;
+            weaponStats: {
+                appendPropId: AbilityProp;
+                statValue: number;
+            };
+        };
+    };
+
+    type AbilityProp =
+        | 'FIGHT_PROP_HP'
+        | 'FIGHT_PROP_ATTACK'
+        | 'FIGHT_PROP_DEFENSE'
+        | 'FIGHT_PROP_HP_PERCENT'
+        | 'FIGHT_PROP_ATTACK_PERCENT'
+        | 'FIGHT_PROP_DEFENSE_PERCENT'
+        | 'FIGHT_PROP_ELEMENT_MASTERY'
+        | 'FIGHT_PROP_CRITICAL'
+        | 'FIGHT_PROP_CRITICAL_HURT'
+        | 'FIGHT_PROP_HEAL_ADD'
+        | 'FIGHT_PROP_FIRE_ADD_HURT'
+        | 'FIGHT_PROP_ELEC_ADD_HURT'
+        | 'FIGHT_PROP_WATER_ADD_HURT'
+        | 'FIGHT_PROP_GRASS_ADD_HURT'
+        | 'FIGHT_PROP_WIND_ADD_HURT'
+        | 'FIGHT_PROP_ICE_ADD_HURT'
+        | 'FIGHT_PROP_ROCK_ADD_HURT'
+        | 'FIGHT_PROP_PHYSICAL_ADD_HURT';
 }
 
 export namespace HoyoLabApi {
