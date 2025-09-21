@@ -1,5 +1,5 @@
-import { EnkaApi } from '@config/types';
-import { upsert } from '@models/traveler';
+import { EnkaApi } from '#config/types';
+import { upsert } from '#models/traveler';
 
 export async function executeImportForTraveler(playerInfo: EnkaApi.PlayerInfo): Promise<void> {
     const result = await upsert(playerInfo);

@@ -1,6 +1,6 @@
-import { dbConnectionOptions, myError500 } from '@common/util';
-import { USER_ID } from '@config/define';
-import { CustomeErrorResponse, Database, EnkaApi } from '@config/types';
+import { dbConnectionOptions, myError500 } from '#common/util';
+import { USER_ID } from '#config/define';
+import { CustomeErrorResponse, Database, EnkaApi } from '#config/types';
 import mysql, { Pool, RowDataPacket } from 'mysql2/promise';
 
 const DB_NAME = 'traveler';

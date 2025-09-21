@@ -1,4 +1,4 @@
-import { DAILY_TASK_NUMBER, MAX_HOME_COIN, MAX_RESIN } from '@config/define';
+import { DAILY_TASK_NUMBER, MAX_HOME_COIN, MAX_RESIN } from '#config/define';
 
 export namespace EnkaApi {
     export type EnkaApiResponse = {

@@ -1,6 +1,6 @@
-import { myError500 } from '@common/util';
-import { USER_ID } from '@config/define';
-import { fetch } from '@models/traveler';
+import { myError500 } from '#common/util';
+import { USER_ID } from '#config/define';
+import { fetch } from '#models/traveler';
 import { Context } from 'hono';
 
 // GET /traveler/profile

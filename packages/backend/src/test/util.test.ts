@@ -1,4 +1,4 @@
-import * as util from '@common/util';
+import * as util from '#common/util';
 import { assert } from 'chai';
 import { describe, it } from 'mocha';
 

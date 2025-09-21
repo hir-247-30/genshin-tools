@@ -1,6 +1,6 @@
-import { myError404 } from '@common/util';
-import { SERVER_PORT } from '@config/define';
-import { TravelerProfileController } from '@controllers/server/travelerProfile';
+import { myError404 } from '#common/util';
+import { SERVER_PORT } from '#config/define';
+import { TravelerProfileController } from '#controllers/server/travelerProfile';
 import { serve } from '@hono/node-server';
 import { Context, Hono } from 'hono';
 import { logger } from 'hono/logger';

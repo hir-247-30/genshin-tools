@@ -5,11 +5,11 @@
     "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
-      "@config/*": ["./src/config/*"],
-      "@common/*": ["./src/common/*"],
-      "@controllers/*": ["./src/controllers/*"],
-      "@services/*": ["./src/services/*"],
-      "@models/*": ["./src/models/*"]
+      "#config/*": ["./src/config/*"],
+      "#common/*": ["./src/common/*"],
+      "#controllers/*": ["./src/controllers/*"],
+      "#services/*": ["./src/services/*"],
+      "#models/*": ["./src/models/*"]
     }
   },
   "ts-node": {
