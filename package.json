@@ -4,30 +4,34 @@
   "description": "genshin-tools",
   "type": "module",
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=24.0.0"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "workspaces": [
     "packages/*"
   ],
   "author": "hir-247-30",
   "devDependencies": {
-    "@swc/core": "^1.13.2",
-    "@types/node": "24.1.0",
-    "@typescript-eslint/eslint-plugin": "^8.38.0",
-    "@typescript-eslint/parser": "^8.38.0",
-    "dprint": "0.50.1",
-    "esbuild": "0.25.8",
-    "eslint": "^9.31.0",
+    "@swc/core": "^1.15.47",
+    "@types/node": "26.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.67.0",
+    "@typescript-eslint/parser": "^8.67.0",
+    "dprint": "0.55.2",
+    "esbuild": "0.28.2",
+    "eslint": "^10.8.1",
     "source-map-support": "^0.5.21",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "4.2.0",
-    "tsx": "^4.20.3",
-    "typescript": "5.8.3"
+    "tsx": "^4.23.12",
+    "typescript": "^6.0.3"
   },
   "dependencies": {
-    "axios": "^1.10.0",
-    "yaml": "^2.8.0"
+    "axios": "^1.19.0",
+    "yaml": "^2.9.0"
+  },
+  "allowScripts": {
+    "@swc/core@1.15.47": true,
+    "dprint@0.55.2": true,
+    "esbuild@0.28.2": true
   }
 }
