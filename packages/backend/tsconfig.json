@@ -3,7 +3,6 @@
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "./dist",
-    "baseUrl": ".",
     "paths": {
       "#config/*": ["./src/config/*"],
       "#common/*": ["./src/common/*"],
